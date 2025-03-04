@@ -92,3 +92,6 @@ CREATE TABLE Payments (
     payment_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     PRIMARY KEY (payment_id, payment_date)
 ) PARTITION BY RANGE (payment_date); -- Partitioning by date
+
+CREATE TABLE Payments_2023 PARTITION OF Payments
+    FOR VALUES FROM ('2023-01-01') TO ('2024-01-01');
