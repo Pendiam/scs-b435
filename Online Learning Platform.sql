@@ -89,7 +89,7 @@ CREATE TABLE Payments (
     user_id INT REFERENCES Users(user_id),
     course_id INT REFERENCES Courses(course_id),
     amount DECIMAL(10, 2) NOT NULL,
-    payment_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    payment_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (payment_id, payment_date)
 ) PARTITION BY RANGE (payment_date); -- Partitioning by date
 
